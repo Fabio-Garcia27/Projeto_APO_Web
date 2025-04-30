@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./css/styles.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="./js/JavaScript.js"></script>
+  <title>Gerador de Currículo</title>
+ </head>
+<body>
+  <h1>Gerador de Currículo</h1>
+
+  <form id="curriculo-form">
+
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" required title="Insira seu Nome" size="50"><br><br>
+
+    <label for="dataNascimento">Data de Nascimento:</label>
+    <input type="text" id="dataNascimento" name="dataNascimento" title="Insira sua Data de Nascimento" size="25"><br><br>
+
+    <label for="endereco">Endereço:</label>
+    <input type="text" id="endereco" name="endereco" required title="Insira seu Endereço"><br><br>
+
+    <label for="idade">Idade:</label>
+    <input type="text" id="idade" name="idade" required title="Sua Idade Atual"><br><br>
+
+    <label for="telefone">Telefone:</label>
+    <input type="text" id="telefone" name="telefone" required title="Insira seu Telefone"><br><br>
+
+    <label>Experiências:</label>
+    <div id="experiencias-container">
+      <input type="text" name="experiencia[]" required title="Insira sua Experiência" size="50">
+    </div>
+    <button type="button" id="add-experiencia">Adicionar Experiência</button><br><br>
+
+    <label>Habilidades:</label>
+    <div id="habilidades-container">
+      <input type="text" type="text" name="habilidade[]" required title="Insira sua Habilidade" size="50">
+    </div>
+    <button type="button" id="add-habilidade">Adicionar Habilidade</button><br><br>
+
+    <button type="submit" id="gerar-curriculo">Gerar Currículo</button>
+  </form>
+  <div id="curriculo-gerado"></div>
+</body>
+</html>
