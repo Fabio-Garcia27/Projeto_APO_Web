@@ -1,3 +1,4 @@
+<!--Fábio 30/04/25 Gerador de Currículo -->
 <?php
 function calcularIdade($dataNascimento) {
   if (empty($dataNascimento)) {
@@ -18,15 +19,17 @@ function calcularIdade($dataNascimento) {
   $dataNascimento = $_POST['dataNascimento'] ?? '';
   $endereco = trim ($_POST['endereco'] ?? '');
   $idade = calcularIdade($dataNascimento);
+  $sexo = ucfirst(strtolower(trim($_POST['sexo'] ?? '')));
   $telefone = trim ($_POST['telefone'] ?? '');
   $experiencias = $_POST['experiencia'] ?? array();
   $habilidades = $_POST['habilidade'] ?? array();
 
   $curriculo  = ""; //LINHA ADICIONADA 1
-  $curriculo .= '<p>Nome ' . $nome . '</p>';
-  $curriculo .= '<p>Data Nascimento ' . $dataNascimento . '</p>';
+  $curriculo .= '<p>Nome: ' . $nome . '</p>';
+  $curriculo .= '<p>Data Nascimento: ' . $dataNascimento . '</p>';
+  $curriculo .= '<p>Sexo: ' . $sexo . '</p>';
   $curriculo .= '<p>Endereço: ' . $endereco . '</p>';
-  $curriculo .= '<p>Idade ' . $idade . '</p>';  
+  $curriculo .= '<p>Idade: ' . $idade . '</p>';  
   $curriculo .= '<p>Telefone: ' . $telefone . '</p>';
 
   $curriculo .= '<h2>Experiências:</h2>';

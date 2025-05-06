@@ -1,10 +1,11 @@
+<!--Fábio 30-04-25 - Gerador de Currículo -->
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="./css/styles.css">
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="./js/jquery-3.7.1.js"></script>
   <script src="./js/JavaScript.js"></script>
   <title>Gerador de Currículo</title>
  </head>
@@ -19,6 +20,12 @@
     <label for="dataNascimento">Data de Nascimento:</label>
     <input type="text" id="dataNascimento" name="dataNascimento" title="Insira sua Data de Nascimento" size="25"><br><br>
 
+    <label for="sexo">Sexo:</label>
+    <select id="sexo" name="sexo" style="color: #964B00">
+           <option value="masculino">Masculino</option>
+           <option value="feminino">Feminino</option>
+    </select><br><br>
+    
     <label for="endereco">Endereço:</label>
     <input type="text" id="endereco" name="endereco" required title="Insira seu Endereço"><br><br>
 
@@ -40,7 +47,9 @@
     </div>
     <button type="button" id="add-habilidade">Adicionar Habilidade</button><br><br>
 
-    <button type="submit" id="gerar-curriculo">Gerar Currículo</button>
+    <button type="submit" id="gerar-curriculo">Gerar Currículo</button><br><br>
+
+    <button onclick="window.print()">Imprimir Currículo</button><br><br><br><br><br><br>
   </form>
   <div id="curriculo-gerado"></div>
 </body>

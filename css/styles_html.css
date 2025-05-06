@@ -1,0 +1,32 @@
+/* Formatando o corpo da página */
+body {
+     background-color: silver; /* cor de fundo */
+     color: black; /* cor do texto */
+}
+/* Formatando todos elementos */
+{
+     font-family: verdana; /* Definindo fonte */
+}
+/*Formatando o título da página */
+h1 {
+     color: purple; /* Definido cor do texto */
+     text-align: center; /* Alinhando título no centro */
+}
+/* Formatando a borda ao redor do formulário - caixa que envolve itens formulário */
+fieldset {
+     width: 60%; /* Largura */
+     margin: 0 auto; /* Centraliza formulário */
+     border-radius: 15px; /* Borda Arredondada*/
+     background-color: white; /* Cor de Fundo */
+     box-shadow: 2px 2px 2px gray; /* Sobra da Caixa */
+}
+/* Formatando campo de entrada, seleção e área de texto */
+input,select,textarea{
+     border-radius: 4px; /* Borda Arredondada*/
+     padding: 5px; /* Definindo margem internas */
+     margin: 5px; /* Definindo margem externa */
+}
+/* Texto antes dos campos */
+label {
+     font-weight: bold; /* Colocando texto em negrito */
+}

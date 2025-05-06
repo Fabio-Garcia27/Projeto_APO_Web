@@ -1,0 +1,75 @@
+Index: css/styles.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>body {\r\n  font-family: Arial, sans-serif;\r\n  background-color: #f5f5dc; /* cor de fundo */\r\n}\r\n\r\n#curriculo-form {\r\n  width: 50%;\r\n  margin: 40px auto;\r\n  padding: 20px;\r\n  border: 1px solid #ccc;\r\n  border-radius: 10px;\r\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\r\n}\r\n\r\n#curriculo-gerado {\r\n  width: 50%;\r\n  margin: 40px auto;\r\n  padding: 20px;\r\n  border: 1px solid #ccc;\r\n  border-radius: 10px;\r\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\r\n}\r\n\r\nh1{\r\n  text-align: center;\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/css/styles.css b/css/styles.css
+--- a/css/styles.css	(revision c40fcd0266a4258b5641934cc3c243e7316674f9)
++++ b/css/styles.css	(date 1746060439472)
+@@ -24,3 +24,5 @@
+ h1{
+   text-align: center;
+ }
++
++
+Index: index.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html>\r\n<head>\r\n  <meta charset=\"utf-8\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n  <link rel=\"stylesheet\" href=\"./css/styles.css\">\r\n  <script src=\"https://code.jquery.com/jquery-3.7.1.min.js\"></script>\r\n  <script src=\"./js/JavaScript.js\"></script>\r\n  <title>Gerador de Currículo</title>\r\n </head>\r\n<body>\r\n  <h1>Gerador de Currículo</h1>\r\n\r\n  <form id=\"curriculo-form\">\r\n\r\n    <label for=\"nome\">Nome:</label>\r\n    <input type=\"text\" id=\"nome\" name=\"nome\" required title=\"Insira seu Nome\" size=\"50\"><br><br>\r\n\r\n    <label for=\"dataNascimento\">Data de Nascimento:</label>\r\n    <input type=\"text\" id=\"dataNascimento\" name=\"dataNascimento\" title=\"Insira sua Data de Nascimento\" size=\"25\"><br><br>\r\n\r\n    <label for=\"endereco\">Endereço:</label>\r\n    <input type=\"text\" id=\"endereco\" name=\"endereco\" required title=\"Insira seu Endereço\"><br><br>\r\n\r\n    <label for=\"idade\">Idade:</label>\r\n    <input type=\"text\" id=\"idade\" name=\"idade\" required title=\"Sua Idade Atual\"><br><br>\r\n\r\n    <label for=\"telefone\">Telefone:</label>\r\n    <input type=\"text\" id=\"telefone\" name=\"telefone\" required title=\"Insira seu Telefone\"><br><br>\r\n\r\n    <label>Experiências:</label>\r\n    <div id=\"experiencias-container\">\r\n      <input type=\"text\" name=\"experiencia[]\" required title=\"Insira sua Experiência\" size=\"50\">\r\n    </div>\r\n    <button type=\"button\" id=\"add-experiencia\">Adicionar Experiência</button><br><br>\r\n\r\n    <label>Habilidades:</label>\r\n    <div id=\"habilidades-container\">\r\n      <input type=\"text\" type=\"text\" name=\"habilidade[]\" required title=\"Insira sua Habilidade\" size=\"50\">\r\n    </div>\r\n    <button type=\"button\" id=\"add-habilidade\">Adicionar Habilidade</button><br><br>\r\n\r\n    <button type=\"submit\" id=\"gerar-curriculo\">Gerar Currículo</button>\r\n  </form>\r\n  <div id=\"curriculo-gerado\"></div>\r\n</body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/index.html b/index.html
+--- a/index.html	(revision c40fcd0266a4258b5641934cc3c243e7316674f9)
++++ b/index.html	(date 1746060490010)
+@@ -1,3 +1,4 @@
++<!--Fábio 30-04-25 - Gerador de Currículo -->
+ <!DOCTYPE html>
+ <html>
+ <head>
+@@ -19,6 +20,12 @@
+     <label for="dataNascimento">Data de Nascimento:</label>
+     <input type="text" id="dataNascimento" name="dataNascimento" title="Insira sua Data de Nascimento" size="25"><br><br>
+ 
++    <label for="sexo">Sexo:</label>
++    <select id="sexo" name="sexo" style="color: #964B00">
++           <option value="masculino">Masculino</option>
++           <option value="feminino">Feminino</option>
++    </select><br><br>
++    
+     <label for="endereco">Endereço:</label>
+     <input type="text" id="endereco" name="endereco" required title="Insira seu Endereço"><br><br>
+ 
+Index: gerar-curriculo.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!--Fábio 30/04/25 Gerador de Currículo -->\r\n<?php\r\nfunction calcularIdade($dataNascimento) {\r\n  if (empty($dataNascimento)) {\r\n    return 'Data de nascimento não informada.';\r\n  }\r\n\r\n  $dataNascimento = DateTime::createFromFormat('d/m/Y', $dataNascimento);\r\n  if (!$dataNascimento) {\r\n    return 'Data de nascimento inválida.';\r\n  }\r\n\r\n  $dataAtual = new DateTime();\r\n  $idade = $dataAtual->diff($dataNascimento)->y;\r\n  return $idade;\r\n}\r\n\r\n  $nome = trim ($_POST['nome'] ?? '');\r\n  $dataNascimento = $_POST['dataNascimento'] ?? '';\r\n  $endereco = trim ($_POST['endereco'] ?? '');\r\n  $idade = calcularIdade($dataNascimento);\r\n  $telefone = trim ($_POST['telefone'] ?? '');\r\n  $experiencias = $_POST['experiencia'] ?? array();\r\n  $habilidades = $_POST['habilidade'] ?? array();\r\n\r\n  $curriculo  = \"\"; //LINHA ADICIONADA 1\r\n  $curriculo .= '<p>Nome ' . $nome . '</p>';\r\n  $curriculo .= '<p>Data Nascimento ' . $dataNascimento . '</p>';\r\n  $curriculo .= '<p>Endereço: ' . $endereco . '</p>';\r\n  $curriculo .= '<p>Idade ' . $idade . '</p>';  \r\n  $curriculo .= '<p>Telefone: ' . $telefone . '</p>';\r\n\r\n  $curriculo .= '<h2>Experiências:</h2>';\r\n  $curriculo .= '<ul>';\r\n  foreach ($experiencias as $experiencia) {\r\n    $curriculo .= '<li>' . $experiencia . '</li>';\r\n}\r\n  $curriculo .= '</ul>';\r\n\r\n  $curriculo .= '<h2>Habilidades:</h2>';\r\n  $curriculo .= '<ul>';\r\n\r\nforeach ($habilidades as $habilidade) {\r\n    $curriculo .= '<li>' . $habilidade . '</li>';\r\n}\r\n\r\n$curriculo .= '</ul>';\r\n\r\necho $curriculo;\r\n\r\n?>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gerar-curriculo.php b/gerar-curriculo.php
+--- a/gerar-curriculo.php	(revision c40fcd0266a4258b5641934cc3c243e7316674f9)
++++ b/gerar-curriculo.php	(date 1746059589386)
+@@ -19,15 +19,17 @@
+   $dataNascimento = $_POST['dataNascimento'] ?? '';
+   $endereco = trim ($_POST['endereco'] ?? '');
+   $idade = calcularIdade($dataNascimento);
++  $sexo = ucfirst(strtolower(trim($_POST['sexo'] ?? '')));
+   $telefone = trim ($_POST['telefone'] ?? '');
+   $experiencias = $_POST['experiencia'] ?? array();
+   $habilidades = $_POST['habilidade'] ?? array();
+ 
+   $curriculo  = ""; //LINHA ADICIONADA 1
+-  $curriculo .= '<p>Nome ' . $nome . '</p>';
+-  $curriculo .= '<p>Data Nascimento ' . $dataNascimento . '</p>';
++  $curriculo .= '<p>Nome: ' . $nome . '</p>';
++  $curriculo .= '<p>Data Nascimento: ' . $dataNascimento . '</p>';
++  $curriculo .= '<p>Sexo: ' . $sexo . '</p>';
+   $curriculo .= '<p>Endereço: ' . $endereco . '</p>';
+-  $curriculo .= '<p>Idade ' . $idade . '</p>';  
++  $curriculo .= '<p>Idade: ' . $idade . '</p>';  
+   $curriculo .= '<p>Telefone: ' . $telefone . '</p>';
+ 
+   $curriculo .= '<h2>Experiências:</h2>';

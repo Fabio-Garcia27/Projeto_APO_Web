@@ -1,3 +1,4 @@
+<!-- Fábio 05/05/2024 -->
 $(document).ready(function() {
     $('#add-experiencia').click(function() {
         $('#experiencias-container').append('<input type="text" name="experiencia[]" title="Descreva uma experiência"><br>');

@@ -1,0 +1,15 @@
+Index: gerar-curriculo.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\nfunction calcularIdade($dataNascimento) {\r\n  if (empty($dataNascimento)) {\r\n    return 'Data de nascimento não informada.';\r\n  }\r\n\r\n  $dataNascimento = DateTime::createFromFormat('d/m/Y', $dataNascimento);\r\n  if (!$dataNascimento) {\r\n    return 'Data de nascimento inválida.';\r\n  }\r\n\r\n  $dataAtual = new DateTime();\r\n  $idade = $dataAtual->diff($dataNascimento)->y;\r\n  return $idade;\r\n}\r\n\r\n  $nome = trim ($_POST['nome'] ?? '');\r\n  $dataNascimento = $_POST['dataNascimento'] ?? '';\r\n  $endereco = trim ($_POST['endereco'] ?? '');\r\n  $idade = calcularIdade($dataNascimento);\r\n  $telefone = trim ($_POST['telefone'] ?? '');\r\n  $experiencias = $_POST['experiencia'] ?? array();\r\n  $habilidades = $_POST['habilidade'] ?? array();\r\n\r\n  $curriculo  = \"\"; //LINHA ADICIONADA 1\r\n  $curriculo .= '<p>Nome ' . $nome . '</p>';\r\n  $curriculo .= '<p>Data Nascimento ' . $dataNascimento . '</p>';\r\n  $curriculo .= '<p>Endereço: ' . $endereco . '</p>';\r\n  $curriculo .= '<p>Idade ' . $idade . '</p>';  \r\n  $curriculo .= '<p>Telefone: ' . $telefone . '</p>';\r\n\r\n  $curriculo .= '<h2>Experiências:</h2>';\r\n  $curriculo .= '<ul>';\r\n  foreach ($experiencias as $experiencia) {\r\n    $curriculo .= '<li>' . $experiencia . '</li>';\r\n}\r\n  $curriculo .= '</ul>';\r\n\r\n  $curriculo .= '<h2>Habilidades:</h2>';\r\n  $curriculo .= '<ul>';\r\n\r\nforeach ($habilidades as $habilidade) {\r\n    $curriculo .= '<li>' . $habilidade . '</li>';\r\n}\r\n\r\n$curriculo .= '</ul>';\r\n\r\necho $curriculo;\r\n\r\n?>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gerar-curriculo.php b/gerar-curriculo.php
+--- a/gerar-curriculo.php	(revision 5ac29502120704d4903103beacd9badb0cbac376)
++++ b/gerar-curriculo.php	(date 1746055606843)
+@@ -1,3 +1,4 @@
++<!--Fábio 30/04/25 - Gerador de Currículo-->
+ <?php
+ function calcularIdade($dataNascimento) {
+   if (empty($dataNascimento)) {
