@@ -1,4 +1,4 @@
-/* Formatando o corpo da página */
+/* Formatando o corpo da página - Fábio 05/05/2024 */
 body {
      background-color: silver; /* cor de fundo */
      color: black; /* cor do texto */
@@ -10,7 +10,7 @@ body {
 /*Formatando o título da página */
 h1 {
      color: purple; /* Definido cor do texto */
-     text-align: center; /* Alinhando título no centro */
+     text-align: left; /* Alinhando título no centro */
 }
 /* Formatando a borda ao redor do formulário - caixa que envolve itens formulário */
 fieldset {
@@ -29,4 +29,11 @@ input,select,textarea{
 /* Texto antes dos campos */
 label {
      font-weight: bold; /* Colocando texto em negrito */
+}
+table {
+     border-collapse: collapse;
+}
+th, td {
+     border: 1px solid #ddd;
+     padding: 10px;
 }
